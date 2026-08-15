@@ -1,0 +1,10 @@
+#!/bin/bash
+
+DATE=$(date +%Y-%m-%d_%H-%M-%S)
+BACKUP_DIR="/var/backups/server_backups"
+BACKUP_FILE="$BACKUP_DIR/backup_$DATE.tar.gz"
+
+tar -czf "$BACKUP_FILE" /etc/nginx /var/www/portfolio 2>/dev/null
+
+echo "[+] Backup completed successfully: $BACKUP_FILE"
+ls -lh "$BACKUP_FILE"
